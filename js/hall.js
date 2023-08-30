@@ -61,8 +61,6 @@ createRequest(updateRequest, (response) => {
 				place: chairIndex,
 				type: chairType
 			});
-
-
 		});
 
 		chosenData.hallConfig = configHall.innerHTML;
@@ -70,4 +68,13 @@ createRequest(updateRequest, (response) => {
 		sessionStorage.setItem('session', JSON.stringify(chosenData));
 		window.location.href = 'payment.html';
 	});
+})
+let zoomBuying = document.querySelector('.buying');
+zoomBuying.addEventListener('dblclick', ()=>{
+	zoomBuying.classList.toggle('zooming');
+	if (zoomBuying.classList.contains('zooming')){
+		zoomBuying.style.transform = "scale(1.5) translate(0%, 10%)"
+	} else{
+		zoomBuying.style.transform = "scale(1)"
+	}
 })
