@@ -71,7 +71,7 @@ createRequest(updateRequest, (response) => {
 })
 
 let zoomBuying = document.querySelector('.buying');
-const mediaQuery = window.matchMedia('(max-width: 989px)');
+const mediaQuery = window.matchMedia('(max-width: 990px)');
 
 	zoomBuying.addEventListener('dblclick', ()=>{
 		if (mediaQuery.matches) {
