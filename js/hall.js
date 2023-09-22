@@ -1,6 +1,6 @@
 let chosenData = JSON.parse(sessionStorage.session);
 let updateRequest = `event=get_hallConfig&timestamp=${chosenData.timestamp}&hallId=${chosenData.hallId}&seanceId=${chosenData.seanceId}`;
-
+console.log(chosenData.timestamp)
 let buyingInfoTitle = document.querySelector('.buying__info-title');
 let buyingInfoStart = document.querySelector('.buying__info-start');
 let buyingInfoHall = document.querySelector('.buying__info-hall');
@@ -69,12 +69,17 @@ createRequest(updateRequest, (response) => {
 		window.location.href = 'payment.html';
 	});
 })
+
 let zoomBuying = document.querySelector('.buying');
-zoomBuying.addEventListener('dblclick', ()=>{
-	zoomBuying.classList.toggle('zooming');
-	if (zoomBuying.classList.contains('zooming')){
-		zoomBuying.style.transform = "scale(1.5) translate(0%, 10%)"
-	} else{
-		zoomBuying.style.transform = "scale(1)"
-	}
-})
+const mediaQuery = window.matchMedia('(max-width: 989px)');
+
+	zoomBuying.addEventListener('dblclick', ()=>{
+		if (mediaQuery.matches) {
+		zoomBuying.classList.toggle('zooming');
+		}
+		if (zoomBuying.classList.contains('zooming')){
+			zoomBuying.style.transform = "scale(1.5) translate(0%, 10%)";
+		} else{
+			zoomBuying.style.transform = "scale(1)";
+		}
+	})
